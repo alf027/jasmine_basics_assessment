@@ -25,7 +25,7 @@ describe('#average()',function(){
 })
 describe('#median()',function(){
     it('the middle value. If there are an even number of scores, calculate the average of the middle two scores.', function(){
-        expect(mycode.median([52,80,80,86,94])).toEqual(80)
+        expect(mycode.median([52,80,80,86,94])).toEqual(80);
         expect(mycode.median([52,80,80,86,94,95])).toEqual(83)
     })
 })
