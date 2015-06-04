@@ -37,4 +37,7 @@ describe('#mode()',function(){
     it('find a multi model if two numbers appear the same amount of time',function(){
         expect(mycode.mode([82, 92, 75, 91, 92, 89, 89, 95, 100, 86])).toEqual('92,89');
     })
+    it('returns no mode if there is no mode',function(){
+        expect(mycode.mode([92,24,21,13,43])).toEqual('no mode')
+    })
 })

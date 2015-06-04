@@ -87,7 +87,9 @@ module.exports = {
             }
             modeCount=0
         }
-
+        if (greatestMode===1) {
+            return 'no mode'
+        }
         var result = modeArr.filter(function(e) {
             return e.count >= greatestMode
         })
