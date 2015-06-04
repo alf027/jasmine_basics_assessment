@@ -57,30 +57,44 @@ module.exports = {
         }
 
     },
-    mode: function (arr) {
+    ModeNum:function(num,count){
+        this.number = num
+        this.count = count
+    },
+    mode:function(arr) {
+        var modeArr = []
+        var currentNum = {}
         var numCount = {}
         var mode = [];
         var modeCount = 0;
         var greatestMode = 0
-        for (var i = 0; i < arr.length; i++) {
-            for (var r = 0; r < arr.length; r++) {
-                if (arr[i] === arr[r]) {
-                    modeCount++
+        for(var i =0;i<arr.length;i++) {
+            for(var r = 0; r < arr.length; r++) {
+                if(arr[i] === arr[r]) {
+                    modeCount ++
                 }
             }
-            numCount[arr[i]] = modeCount
-            if (modeCount >= greatestMode) {
-                greatestMode = modeCount
-            }
-            modeCount = 0
-        }
-        for (var prop in numCount) {
-            if (numCount[prop] == greatestMode) {
-                mode.push(prop)
+
+            dupTest = modeArr.map(function(e) {
+                return e.number; }).indexOf(arr[i]);
+
+            if(dupTest < 0) {
+                modeArr.push(new this.ModeNum(arr[i],modeCount))
             }
 
+            if(modeCount>=greatestMode) {
+                greatestMode= modeCount
+            }
+            modeCount=0
         }
-        return mode.join(' ');
+
+        var result = modeArr.filter(function(e) {
+            return e.count >= greatestMode
+        })
+
+
+        return result.map(function(elem){
+            return elem.number;}).join(",");
     }
 
 }
