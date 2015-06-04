@@ -31,7 +31,10 @@ describe('#median()',function(){
 })
 describe('#mode()',function(){
     it('finds the value that appears most often from the array',function(){
-        expect(mycode.mode([82, 92, 75, 91, 92, 89, 95, 100, 86])).toEqual(92)
-        expect(mycode.mode([82, 92, 75, 91, 92, 89, 95, 91, 91, 100, 86])).toEqual(91)
+        expect(mycode.mode([82, 92, 75, 91, 92, 89, 95, 100, 86])).toEqual('92')
+        expect(mycode.mode([82, 92, 75, 91, 92, 89, 95, 91, 91, 100, 86])).toEqual('91')
+    })
+    it('find a multi model if two numbers appear the same amount of time',function(){
+        expect(mycode.mode([82, 92, 75, 91, 92, 89, 89, 95, 100, 86])).toEqual('89 92');
     })
 })
